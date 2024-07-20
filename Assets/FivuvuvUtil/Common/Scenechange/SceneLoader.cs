@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-namespace fivuvuvUtil.common
+namespace FivuvuvUtil.common
 {
     public class SceneLoader : MonoSingleton<SceneLoader>
     {
@@ -21,7 +21,7 @@ namespace fivuvuvUtil.common
         public UnityEvent OnGameLoading;
         //TODO:加载进度条
         private AsyncOperation asyncLoad;
-        override public void Awake()
+        protected override void Awake()
         {
             base.Awake();
         }

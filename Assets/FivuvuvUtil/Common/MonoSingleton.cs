@@ -1,37 +1,93 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-namespace fivuvuvUtil
+namespace FivuvuvUtil
 {
-    /// <summary>
-    /// 单例模式
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
+    abstract public class MonoSingleton<Type> : MonoBehaviour where Type : MonoBehaviour
     {
-        private static T instance;
-        public static T Instance
+        [Header("该物体是否跨场景")]
+        [SerializeField]
+        protected bool permanent = false;
+        protected bool destroyed = false;
+        static private Type instance;
+        GameObject permanentObject;
+        /// <summary>
+        /// 单例
+        /// </summary>
+        public static Type Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    GameObject go = new GameObject(typeof(T).Name);
-                    instance = go.AddComponent<T>();
+                    (FindObjectOfType<Type>() as MonoSingleton<Type>)?.InitializeInstance();
                 }
                 return instance;
             }
+            protected set
+            {
+                instance = value;
+            }
         }
-        public virtual void Awake()
+
+        private void InitializeInstance()
         {
+            if (permanent)
+            {
+                permanentObject = gameObject;
+                while (permanentObject.transform.parent != null)
+                {
+                    permanentObject = permanentObject.transform.parent.gameObject;
+                }
+            }
             if (instance == null)
             {
-                instance = this as T;
+                instance = this as Type;
+                if (permanent)
+                {
+                    DontDestroyOnLoad(permanentObject);
+                }
             }
-            else
+            else if (permanent && instance != this)
             {
-                Destroy(gameObject);
+                destroyed = true;
+                if (permanentObject != null)
+                {
+                    Destroy(permanentObject);
+                }
+            }
+        }
+
+        protected virtual void Awake()
+        {
+            if (permanent)
+            {
+                permanentObject = gameObject;
+                while (permanentObject.transform.parent != null)
+                {
+                    permanentObject = permanentObject.transform.parent.gameObject;
+                }
+            }
+            if (instance == null)
+            {
+                instance = this as Type;
+                if (permanent)
+                {
+                    DontDestroyOnLoad(permanentObject);
+                }
+            }
+            else if (permanent && instance != this)
+            {
+                destroyed = true;
+                if (permanentObject != null)
+                {
+                    Destroy(permanentObject);
+                }
             }
         }
     }
 }
+
+
+

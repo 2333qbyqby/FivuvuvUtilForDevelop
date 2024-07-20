@@ -1,4 +1,3 @@
-using fivuvuvUtil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +13,7 @@ namespace FivuvuvUtil
         public AudioClip[] SFXClips;
         public AudioClip[] BGMClips;
         public Dictionary<string, AudioClip> audioClipDict = new Dictionary<string, AudioClip>();
-        public override void Awake()
+        protected override void Awake()
         {
             base.Awake();
             foreach (AudioClip audioClip in SFXClips)//将音频文件放入字典

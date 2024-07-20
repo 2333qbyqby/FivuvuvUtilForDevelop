@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using fivuvuvUtil.common;
+using FivuvuvUtil.common;
 public class TestLoad : MonoBehaviour
 {
     // Start is called before the first frame update

@@ -9,7 +9,7 @@ using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-namespace fivuvuvUtil.common
+namespace FivuvuvUtil.common
 {
     /// <summary>
     ///    使用Addressable场景切换,需要在Addressable中设置好场景的AssetReference
@@ -36,7 +36,7 @@ namespace fivuvuvUtil.common
         private const string APPEAR = "Appear";
         [Header("参数设置")]
         public bool ifNeedSimpleAnimation;
-        override public void Awake()
+        protected override void Awake()
         {
             base.Awake();
         }
