@@ -3,12 +3,12 @@ using System;
 
 namespace FivuvuvUtil.CommonPool
 {
-    /// <summary>被对象池管理的2D物体类</summary>
+    /// <summary>被对象池管理的2D物体类,用来被需要管理的物体继承的，最好再写一个基类</summary>
     /// <typeparam name="ArgsType">参数类型</typeparam>
     public class PoolManagedComponent2D<ArgsType> : MonoBehaviour, IPoolManaged<ArgsType>
         where ArgsType : PoolArgs
     {
-        public Action OnRemove_Pool { get; set; }
+        public Action OnRemoveFromPool { get; set; }
 
         protected Rigidbody2D m_rb2D;
 
@@ -25,7 +25,7 @@ namespace FivuvuvUtil.CommonPool
 
         }
 
-        public virtual void Init_Pool(ArgsType args)
+        public virtual void InitPool(ArgsType args)
         {
             transform.position = args.initialPos;
             transform.rotation = args.initialRotation;
@@ -41,7 +41,7 @@ namespace FivuvuvUtil.CommonPool
             gameObject.SetActive(true);
         }
 
-        public virtual void Remove_Pool()
+        public virtual void RemoveFromPool()
         {
             transform.position = new Vector3(9999, 9999);
             transform.rotation = Quaternion.identity;
@@ -51,12 +51,12 @@ namespace FivuvuvUtil.CommonPool
                 m_rb2D.bodyType = RigidbodyType2D.Static;
             }
             gameObject.SetActive(false);
-            OnRemove_Pool?.Invoke();
+            OnRemoveFromPool?.Invoke();
         }
 
         protected virtual void OnDestroy()
         {
-            OnRemove_Pool = null;
+            OnRemoveFromPool = null;
         }
     }
 }

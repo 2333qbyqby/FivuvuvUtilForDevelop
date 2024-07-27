@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-namespace FivuvuvUtil.common
+namespace FivuvuvUtil.Common
 {
     public class SceneLoader : MonoSingleton<SceneLoader>
     {

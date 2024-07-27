@@ -4,94 +4,6 @@ using System;
 
 namespace FivuvuvUtil.CommonPool
 {
-    /// <summary>初始化参数</summary>
-    public class PoolArgs
-    {
-        #region 变量定义
-
-        /// <summary>初始位置</summary>
-        public Vector3 initialPos;
-        /// <summary>初始旋转</summary>
-        public Quaternion initialRotation;
-        /// <summary>初始速度(3D)</summary>
-        public Vector3 initialVelocity;
-        /// <summary>初始速度(2D)</summary>
-        public Vector2 initialVelocity2D;
-
-        #endregion
-
-        #region 构造函数
-
-        public PoolArgs()
-        {
-            initialPos = Vector3.zero;
-            initialRotation = Quaternion.identity;
-            initialVelocity = Vector3.zero;
-            initialVelocity2D = Vector2.zero;
-        }
-
-        public PoolArgs(Vector3 pos)
-        {
-            initialPos = pos;
-            initialRotation = Quaternion.identity;
-            initialVelocity = Vector3.zero;
-            initialVelocity2D = Vector2.zero;
-        }
-
-        public PoolArgs(Vector3 pos, Vector3 initialSpeed)
-        {
-            initialPos = pos;
-            initialRotation = Quaternion.identity;
-            initialVelocity = initialSpeed;
-            initialVelocity2D = Vector2.zero;
-        }
-
-        public PoolArgs(Vector3 pos, Vector2 initialSpeed2D)
-        {
-            initialPos = pos;
-            initialRotation = Quaternion.identity;
-            initialVelocity = Vector3.zero;
-            initialVelocity2D = initialSpeed2D;
-        }
-
-        public PoolArgs(Vector3 pos, Quaternion rotation)
-        {
-            initialPos = pos;
-            initialRotation = rotation;
-            initialVelocity = Vector3.zero;
-            initialVelocity2D = Vector2.zero;
-        }
-
-        public PoolArgs(Vector3 pos, Quaternion rotation, Vector3 initialSpeed)
-        {
-            initialPos = pos;
-            initialRotation = rotation;
-            initialVelocity = initialSpeed;
-            initialVelocity2D = Vector2.zero;
-        }
-
-        public PoolArgs(Vector3 pos, Quaternion rotation, Vector2 initialSpeed2D)
-        {
-            initialPos = pos;
-            initialRotation = rotation;
-            initialVelocity = Vector3.zero;
-            initialVelocity2D = initialSpeed2D;
-        }
-
-        #endregion
-    }
-
-    /// <summary>被对象池管理的池对象接口</summary>
-    public interface IPoolManaged<ArgsType> where ArgsType : PoolArgs
-    {
-        /// <summary>加载进场景前进行初始化</summary>
-        void Init_Pool(ArgsType args);
-        /// <summary>移除回调</summary>
-        Action OnRemove_Pool { get; set; }
-        /// <summary>从场景中消失</summary>
-        void Remove_Pool();
-    }
-
     /// <summary>对象池,继承这个</summary>
     /// <typeparam name="ObjectType">池对象类型</typeparam>
     /// <typeparam name="ArgsType">参数类型</typeparam>
@@ -226,13 +138,13 @@ namespace FivuvuvUtil.CommonPool
                 else
                 {
                     newItem = GameObject.Instantiate(prototypes[name], args.initialPos, args.initialRotation).GetComponent<ObjectType>();
-                    newItem.OnRemove_Pool += () => { itemQueue.Enqueue(newItem); };
+                    newItem.OnRemoveFromPool += () => { itemQueue.Enqueue(newItem); };
                 }
                 if (args == null)
                 {
                     args = new ArgsType();
                 }
-                newItem.Init_Pool(args);
+                newItem.InitPool(args);
                 return newItem;
             }
         }

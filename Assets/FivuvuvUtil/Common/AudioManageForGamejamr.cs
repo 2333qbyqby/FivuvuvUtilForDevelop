@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace FivuvuvUtil
+namespace FivuvuvUtil.Common
 {
     public class AudioManagerForGamejam : MonoSingleton<AudioManagerForGamejam>
     {

@@ -9,7 +9,7 @@ using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-namespace FivuvuvUtil.common
+namespace FivuvuvUtil.Common
 {
     /// <summary>
     ///    使用Addressable场景切换,需要在Addressable中设置好场景的AssetReference
