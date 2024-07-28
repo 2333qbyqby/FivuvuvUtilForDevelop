@@ -249,7 +249,7 @@ namespace FivuvuvUtil.CommonFSM
         {
             return !onCoroutine ? base.Trigger() : false;
         }
-
+        #region ¹¹Ôìº¯Êý
         public CorountineAction(Func<IEnumerator> ienumGenerator = null, bool useTrigger = false, Func<bool> condition = null,
             State next = null, bool interrupt = false, bool block = false) :
             base(useTrigger, condition, next, interrupt, block)
@@ -271,5 +271,6 @@ namespace FivuvuvUtil.CommonFSM
             reusable = true;
             lastStop = -1;
         }
+        #endregion
     }
 }
