@@ -1,0 +1,228 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac518e51a236c9469cbac0639cddc6e, type: 3}
+  m_Name: FivDialogueAsset
+  m_EditorClassIdentifier: 
+  dialogueAssetName: 
+  editorNodes:
+  - name: Start
+    uid: 777787
+    rect:
+      serializedVersion: 2
+      x: 166
+      y: 474
+      width: 100
+      height: 80
+    oRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    type: 4
+    info:
+      content: <Content>
+      speaker: <Speaker>
+      avatar: {fileID: 0}
+      audio: {fileID: 0}
+    linkedNodesID: 8fa00900
+    linkedFromNodesID: 
+    event_name: <event name>
+    event_arg0: 0
+    event_arg1: 0
+    int_property_name: <variable>
+    int_property_value: 0
+    if_property_name: <variable>
+    if_property_value: 0
+    if_comparator: 0
+  - name: End
+    uid: 605266
+    rect:
+      serializedVersion: 2
+      x: 1330
+      y: 491
+      width: 100
+      height: 80
+    oRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    type: 7
+    info:
+      content: <Content>
+      speaker: <Speaker>
+      avatar: {fileID: 0}
+      audio: {fileID: 0}
+    linkedNodesID: 
+    linkedFromNodesID: 35800b00a40f0600
+    event_name: <event name>
+    event_arg0: 0
+    event_arg1: 0
+    int_property_name: <variable>
+    int_property_value: 0
+    if_property_name: <variable>
+    if_property_value: 0
+    if_comparator: 0
+  - name: Sentence 3
+    uid: 630927
+    rect:
+      serializedVersion: 2
+      x: 498.6667
+      y: 443.66666
+      width: 100
+      height: 130
+    oRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    type: 0
+    info:
+      content: hello,world
+      speaker: <Speaker>
+      avatar: {fileID: 0}
+      audio: {fileID: 0}
+    linkedNodesID: be2f0a007b890500
+    linkedFromNodesID: 3dc008003bde0b00
+    event_name: <event name>
+    event_arg0: 0
+    event_arg1: 0
+    int_property_name: <variable>
+    int_property_value: 0
+    if_property_name: <variable>
+    if_property_value: 0
+    if_comparator: 0
+  - name: Choice 4
+    uid: 667582
+    rect:
+      serializedVersion: 2
+      x: 786.66675
+      y: 331.6667
+      width: 100
+      height: 80
+    oRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    type: 1
+    info:
+      content: true
+      speaker: fivuvuv
+      avatar: {fileID: 0}
+      audio: {fileID: 0}
+    linkedNodesID: 4f580300
+    linkedFromNodesID: 35800b000a9a05008fa00900
+    event_name: <event name>
+    event_arg0: 0
+    event_arg1: 0
+    int_property_name: <variable>
+    int_property_value: 0
+    if_property_name: <variable>
+    if_property_value: 0
+    if_comparator: 0
+  - name: Choice 5
+    uid: 362875
+    rect:
+      serializedVersion: 2
+      x: 840.66675
+      y: 573.6666
+      width: 100
+      height: 80
+    oRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    type: 1
+    info:
+      content: false
+      speaker: fivuvuv
+      avatar: {fileID: 0}
+      audio: {fileID: 0}
+    linkedNodesID: a40f0600
+    linkedFromNodesID: 0a9a05008fa00900
+    event_name: <event name>
+    event_arg0: 0
+    event_arg1: 0
+    int_property_name: <variable>
+    int_property_value: 0
+    if_property_name: <variable>
+    if_property_value: 0
+    if_comparator: 0
+  - name: Sentence 5
+    uid: 219215
+    rect:
+      serializedVersion: 2
+      x: 1073.6667
+      y: 204.66669
+      width: 100
+      height: 130
+    oRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    type: 0
+    info:
+      content: true hello world
+      speaker: speaker
+      avatar: {fileID: 0}
+      audio: {fileID: 0}
+    linkedNodesID: 
+    linkedFromNodesID: be2f0a00
+    event_name: <event name>
+    event_arg0: 0
+    event_arg1: 0
+    int_property_name: <variable>
+    int_property_value: 0
+    if_property_name: <variable>
+    if_property_value: 0
+    if_comparator: 0
+  - name: Sentence 6
+    uid: 397220
+    rect:
+      serializedVersion: 2
+      x: 1099.6667
+      y: 528.6666
+      width: 100
+      height: 130
+    oRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    type: 0
+    info:
+      content: no hello world
+      speaker: <Speaker>
+      avatar: {fileID: 0}
+      audio: {fileID: 0}
+    linkedNodesID: 523c0900
+    linkedFromNodesID: 7b890500
+    event_name: <event name>
+    event_arg0: 0
+    event_arg1: 0
+    int_property_name: <variable>
+    int_property_value: 0
+    if_property_name: <variable>
+    if_property_value: 0
+    if_comparator: 0
+  intProperties: []
+  eventProperties: []
